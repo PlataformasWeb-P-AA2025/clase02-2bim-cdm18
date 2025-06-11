@@ -1,7 +1,8 @@
 from django.db import models
 
+
 # Create your models here.
-class Estudiante (models.Model):
+class Estudiante(models.Model):
     nombre = models.CharField(max_length=30)
     apellido = models.CharField(max_length=30)
     cedula = models.CharField(max_length=30, unique=True)
@@ -9,7 +10,13 @@ class Estudiante (models.Model):
 
     def __str__(self):
         return "%s - %s - %s - edad: %d" % (self.nombre,
-                self.apellido,
-                self.cedula,
-                self.edad)
+                                            self.apellido,
+                                            self.cedula,
+                                            self.edad)
 
+class Ciudad(models.Model):
+    nombre = models.CharField(max_length=50)
+    poblacion = models.IntegerField()
+
+    def __str__(self):
+        return "%s - Population: %d" % (self.nombre, self.poblacion)
